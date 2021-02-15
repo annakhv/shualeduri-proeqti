@@ -1,0 +1,56 @@
+
+header {
+    background-color: rgb(209, 236, 226);
+    padding: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif; 
+   
+}
+
+main {
+    min-height: 900px;
+    padding: 100px;
+    background-color: rgb(235, 245, 241);
+    font-family:Georgia, 'Times New Roman', Times, serif; 
+}
+
+
+button{
+    padding: 30px;
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    background-color: rgb(250, 230, 206);
+    border-radius: 10px;
+    border: 2px solid rgb(233, 218, 200);
+    word-wrap: break-word;
+    transition: 0.5s;
+    font-family:Georgia, 'Times New Roman', Times, serif; 
+}
+
+button:hover{
+    background-color:  rgb(209, 236, 226);
+    border: 2px solid rgb(233, 218, 200);
+    height: 220px;
+    width: 220px;
+}
+
+
+div {
+ font-size: x-large;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+ padding: 10px;
+ 
+
+}
+ul{
+    list-style:none
+}
+
+.container {
+   background-color: blanchedalmond;
+}
+
+
+.invisible{
+    display: none;
+}
