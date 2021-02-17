@@ -38,15 +38,26 @@ button:hover{
 div {
  font-size: x-large;
  font-family: Georgia, 'Times New Roman', Times, serif;
- padding: 10px;
+ padding: 20px;
  
 
 }
+
+.box {
+   border: 2px solid lightgray;
+   border-radius: 10px;
+   border-collapse: collapse;
+   margin: 40px;
+   background-color:rgb(248, 236, 219);
+
+}
+
 ul{
     list-style:none
 }
 
-.container {
+
+section  {
    background-color: blanchedalmond;
 }
 
