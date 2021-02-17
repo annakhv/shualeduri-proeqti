@@ -13,22 +13,22 @@ function fetchData()  {
 .then(function (data) {
   window.data=data;
   localStorage.setItem("data", JSON.stringify(data))
-  window.load=1;
+  window.loadNext=1;
   window.onePage=24;
-  infiniteScroll(load)
+  infiniteScroll(loadNext)
 });
 
 }
 
-
+console.log(window.loadNext);
 
 document.addEventListener('scroll', function(e){
    if ((window.innerHeight+window.scrollY) == document.body.offsetHeight){
-     load++
-     if (Math.floor(data.length/onePage)+1 >  load) {
+     loadNext++
+     if (Math.floor(data.length/onePage)+1 >  loadNext) {
        document.getElementById("scroll").innerHTML="loading..";
        setInterval(2000);
-       infiniteScroll(load)
+       infiniteScroll(loadNext)
    } else{
       document.getElementById("scroll").innerHTML="no more data to load";
       setInterval(6000);

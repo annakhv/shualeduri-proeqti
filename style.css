@@ -23,15 +23,14 @@ button{
     border-radius: 10px;
     border: 2px solid rgb(233, 218, 200);
     word-wrap: break-word;
-    transition: 0.5s;
     font-family:Georgia, 'Times New Roman', Times, serif; 
 }
 
 button:hover{
     background-color:  rgb(209, 236, 226);
     border: 2px solid rgb(233, 218, 200);
-    height: 220px;
-    width: 220px;
+    transform: scale(1.1, 1.1);
+    
 }
 
 
@@ -59,9 +58,17 @@ ul{
 
 section  {
    background-color: blanchedalmond;
+   
 }
 
 
 .invisible{
     display: none;
+}
+
+.setWidth{
+    width: 80%;
+    border: 2px solid rgb(220, 238, 235);
+    background-color: rgb(230, 238, 236);
+    border-radius: 10px;
 }
