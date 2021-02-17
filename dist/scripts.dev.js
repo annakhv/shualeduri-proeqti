@@ -6,16 +6,48 @@ function fetchData() {
   fetch("https://restcountries.eu/rest/v2/all").then(function (res) {
     return res.json();
   }).then(function (data) {
-    for (number in data) {
-      window.data = data;
-      localStorage.setItem("data", JSON.stringify(data));
-      countryName = data[number]['name'];
-      icon(countryName, "allResult");
-    }
+    window.data = data;
+    localStorage.setItem("data", JSON.stringify(data));
+    window.load = 1;
+    window.onePage = 24;
+    infiniteScroll(load);
   });
 }
 
-function icon(countryName, place) {
+document.addEventListener('scroll', function (e) {
+  if (window.innerHeight + window.scrollY == document.body.offsetHeight) {
+    load++;
+
+    if (Math.floor(data.length / onePage) + 1 > load) {
+      document.getElementById("scroll").innerHTML = "loading..";
+      setInterval(2000);
+      infiniteScroll(load);
+    } else {
+      document.getElementById("scroll").innerHTML = "no more data to load";
+      setInterval(6000);
+      document.getElementById("scroll").classList.add("invisible");
+    }
+  }
+});
+
+function infiniteScroll(next) {
+  var numPages = data.lenghth / onePage;
+  end = next * onePage;
+  start = end - onePage + 1;
+
+  if (end > data.length) {
+    end = data.length;
+  }
+
+  while (start <= end) {
+    countryName = data[start]['name'];
+    icon(start, "allResult");
+    start++;
+  }
+}
+
+function icon(number, place) {
+  countryName = data[number]['name'];
   var li = document.createElement('li');
   li.setAttribute("id", number);
   var a = document.createElement('a');
@@ -55,7 +87,7 @@ document.querySelector('#submit').addEventListener('click', function (event) {
 
     if (country.includes(value)) {
       result.push(number);
-      icon(data[number]['name'], "searchResult");
+      icon(number, "searchResult");
     }
   }
 });
