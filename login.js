@@ -1,4 +1,15 @@
-console.log("start")
+
+var token= localStorage.getItem('token');
+if (token){
+    console.log(token);
+    window.location.href="main.html" 
+}else{
+     window.location.href="index.html" 
+}
+
+
+
+
 document.querySelector("#signin").addEventListener("submit", function(event){
    
 event.preventDefault();

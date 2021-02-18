@@ -14,19 +14,21 @@ main {
 }
 
 
-button{
+.button{
     padding: 30px;
-    height: 200px;
-    width: 200px;
+    height: 240px;
+    width: 230px;
     margin: 20px;
     background-color: rgb(250, 230, 206);
     border-radius: 10px;
     border: 2px solid rgb(233, 218, 200);
     word-wrap: break-word;
     font-family:Georgia, 'Times New Roman', Times, serif; 
+    font-size: larger;
+    display:inline-flex;
 }
 
-button:hover{
+.button:hover{
     background-color:  rgb(209, 236, 226);
     border: 2px solid rgb(233, 218, 200);
     transform: scale(1.1, 1.1);
@@ -53,6 +55,7 @@ div {
 
 ul{
     list-style:none
+   
 }
 
 

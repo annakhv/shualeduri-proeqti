@@ -14,7 +14,7 @@ function fetchData()  {
   window.data=data;
   localStorage.setItem("data", JSON.stringify(data))
   window.loadNext=1;
-  window.onePage=24;
+  window.onePage=16;
   infiniteScroll(loadNext)
 });
 
@@ -58,14 +58,21 @@ function infiniteScroll(next) {
 
 function icon(number, place){
      countryName=data[number]['name']
+    flag=document.createElement('img');
+    flag.setAttribute('src', data[number]['flag']);
+    flag.setAttribute("height", "120px");
+    flag.setAttribute("width", "150px")
      const li=document.createElement('li');
-      li.setAttribute("id", number)
+      li.setAttribute("id", number);
       const a=document.createElement('a');
-      const button=document.createElement('button')
+      const button=document.createElement('div')
+      button.classList.add("button")
       a.href=number;
       li.innerHTML=countryName;
       a.appendChild(li);
-      button.appendChild(a);
+      li.appendChild(flag);
+     
+     button.appendChild(a);
       document.querySelector(`#${place}`).append(button);
 
 
@@ -74,6 +81,7 @@ function icon(number, place){
 
 
 document.querySelector('#allResult').addEventListener('click', function(event){
+  console.log(event)
            event.preventDefault()
            const element=event.target;
            const datanum=element.getAttribute("id");
@@ -86,6 +94,7 @@ document.querySelector('#allResult').addEventListener('click', function(event){
 
 document.querySelector('#searchResult').addEventListener('click', function(event){
            event.preventDefault()
+           
            const element=event.target;
            const datanum=element.getAttribute("id");
            localStorage.setItem('clickedCountry', datanum)

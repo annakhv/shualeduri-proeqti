@@ -50,7 +50,7 @@ function addCountryData(description, inputvar, place){
 
 
 function addCountryDataList(description, inputList, place, place1){
-  console.log(inputList)
+ 
            document.querySelector(`#${place1}`).innerHTML=description;
           for (item in inputList){
            let li=document.createElement('li');

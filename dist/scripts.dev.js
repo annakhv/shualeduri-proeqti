@@ -9,7 +9,7 @@ function fetchData() {
     window.data = data;
     localStorage.setItem("data", JSON.stringify(data));
     window.loadNext = 1;
-    window.onePage = 24;
+    window.onePage = 16;
     infiniteScroll(loadNext);
   });
 }
@@ -49,18 +49,25 @@ function infiniteScroll(next) {
 
 function icon(number, place) {
   countryName = data[number]['name'];
+  flag = document.createElement('img');
+  flag.setAttribute('src', data[number]['flag']);
+  flag.setAttribute("height", "120px");
+  flag.setAttribute("width", "150px");
   var li = document.createElement('li');
   li.setAttribute("id", number);
   var a = document.createElement('a');
-  var button = document.createElement('button');
+  var button = document.createElement('div');
+  button.classList.add("button");
   a.href = number;
   li.innerHTML = countryName;
   a.appendChild(li);
+  li.appendChild(flag);
   button.appendChild(a);
   document.querySelector("#".concat(place)).append(button);
 }
 
 document.querySelector('#allResult').addEventListener('click', function (event) {
+  console.log(event);
   event.preventDefault();
   var element = event.target;
   var datanum = element.getAttribute("id");
