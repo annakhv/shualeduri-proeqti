@@ -15,27 +15,43 @@
         </header>
       
      <main>
-         <form action="/details" class="text-center">
-             <label for="search" class="text-primary"><h3>Search with country name</h3></label><br><br>
-             <input class="form-control" type="text" id="search" name="search"><br>
-             <input  id="submit" class="btn btn-primary btn-block"type="submit" name="submit search">
-         </form>
-        <br>
-        <br>
-         <ul id="allResult">
-
-         </ul>
-         <ul id="searchResult">
-
-        </ul>
-   
-         <div>
-             <h4 id="scroll" class='text-center'></h4>
-         </div>
+     <div class="container setWidth"> 
+         <form id="signin" action="/login" class="text-center form-horisontal">
+            <h3>Log In</h3>
+           <div class="form-group">
+             <label for="email"  class="control-label col-sm-3"><h3>Email :</h3> </label>
+             <div class="col-sm-8">
+                <input class="form-control"  type="email" id="email" name="email">
+             </div>
+             </div>
+             <div class="form-group">
+              <label for="password"  class="control-label col-sm-3"><h3>Password :</h3></label>
+              <div class="col-sm-8">
+             <input class="form-control"  type="password" id="password" name="password">
+              </div>
+             </div>
+             <div class="form-group">
+              
+                  <div class="checkbox">
+                    <label><input type="checkbox" id="remember"> Remember me</label> 
+                  </div>
+             
+             <div class="form-group ">
+             <input  id="submit" class="btn btn-default" type="submit" name="submit">
+            </div>
+            
+           <p class="text-muted text-center">
+                <h3> <a id="register" href="">register</a></h3>
+           </p>
+            </form>
+       
+        </div> 
+        
+        
      </main>
     
 
-    <script src="scripts.js"></script>
+    <script src="login.js"></script>
     <footer>
        
     </footer>
