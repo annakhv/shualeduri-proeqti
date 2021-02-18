@@ -1,14 +1,19 @@
 "use strict";
 
-var token = localStorage.getItem('token');
+function ifRemember() {
+  answer = localStorage.getItem('remember');
 
-if (token) {
-  console.log(token);
-  window.location.href = "main.html";
-} else {
-  window.location.href = "index.html";
+  if (answer === "checked") {
+    console.log("printt");
+    console.log(answer);
+    window.location.href = "main.html";
+  } else {
+    console.log("printtindeex");
+  }
 }
 
+ifRemember();
+console.log("hahahaha");
 document.querySelector("#signin").addEventListener("submit", function (event) {
   event.preventDefault();
   var email = document.getElementById("email");
@@ -55,6 +60,12 @@ function fetchApi(endpoint, email, password) {
     if (token) {
       window.userToken = token;
       localStorage.setItem("token", token);
+
+      if (remember.checked === true) {
+        console.log("checked");
+        localStorage.setItem("remember", "checked");
+      }
+
       window.location.href = "main.html";
     } else {
       window.location.href = "index.html";

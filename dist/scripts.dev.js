@@ -99,3 +99,9 @@ document.querySelector('#submit').addEventListener('click', function (event) {
     }
   }
 });
+document.querySelector("#sign-out").addEventListener('click', function (event) {
+  event.preventDefault();
+  localStorage.removeItem('remember');
+  localStorage.removeItem('token');
+  window.location.href = "index.html";
+});

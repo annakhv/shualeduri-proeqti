@@ -1,15 +1,21 @@
 
-var token= localStorage.getItem('token');
-if (token){
-    console.log(token);
+
+function ifRemember(){
+answer= localStorage.getItem('remember');
+
+if (answer === "checked" ){
+    console.log("printt")
+    console.log(answer);
     window.location.href="main.html" 
 }else{
-     window.location.href="index.html" 
+    console.log("printtindeex")
+   
 }
 
+}
 
-
-
+ifRemember();
+console.log("hahahaha")
 document.querySelector("#signin").addEventListener("submit", function(event){
    
 event.preventDefault();
@@ -62,6 +68,10 @@ console.log(email_);
      if (token){
       window.userToken=token;
       localStorage.setItem("token", token);
+      if (remember.checked === true){
+          console.log("checked")
+          localStorage.setItem("remember", "checked")
+      }
       window.location.href="main.html" 
      }else{
       window.location.href="index.html"  
@@ -75,7 +85,6 @@ console.log(email_);
 document.querySelector("#register").addEventListener("click", function(event){
      event.preventDefault();
      window.location.href="regist.html" 
-
 
 });
 
