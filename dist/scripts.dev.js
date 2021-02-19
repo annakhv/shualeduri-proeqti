@@ -1,6 +1,8 @@
 "use strict";
 
 fetchData();
+window.loadNext = 1;
+window.onePage = 16;
 
 function fetchData() {
   fetch("https://restcountries.eu/rest/v2/all").then(function (res) {
@@ -8,13 +10,12 @@ function fetchData() {
   }).then(function (data) {
     window.data = data;
     localStorage.setItem("data", JSON.stringify(data));
-    window.loadNext = 1;
-    window.onePage = 16;
+    console.log("print");
     infiniteScroll(loadNext);
   });
 }
 
-console.log(window.loadNext);
+console.log(loadNext);
 document.addEventListener('scroll', function (e) {
   if (window.innerHeight + window.scrollY == document.body.offsetHeight) {
     loadNext++;

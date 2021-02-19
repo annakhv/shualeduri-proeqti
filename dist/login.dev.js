@@ -56,10 +56,11 @@ function fetchApi(endpoint, email, password) {
   };
   fetch("https://reqres.in/api/".concat(endpoint), options).then(function (responce) {
     return responce.json();
-  }).then(function (token) {
-    if (token) {
-      window.userToken = token;
-      localStorage.setItem("token", token);
+  }).then(function (data) {
+    if (data.hasOwnProperty('token')) {
+      console.log(data['token']);
+      window.userToken = data['token'];
+      localStorage.setItem("token", data['token']);
 
       if (remember.checked === true) {
         console.log("checked");
@@ -68,6 +69,7 @@ function fetchApi(endpoint, email, password) {
 
       window.location.href = "main.html";
     } else {
+      console.log(data['error']);
       window.location.href = "index.html";
     }
   });
