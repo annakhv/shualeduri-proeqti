@@ -48,7 +48,7 @@ function fetchApi(endpoint, email, password){
      if (data.hasOwnProperty('token')){
          console.log(data['token']);
       window.userToken=data['token'];
-      localStorage.setItem("token", data['token']);
+      
        window.location.href="index.html"  
      }else{
          console.log(data['error'])

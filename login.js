@@ -69,7 +69,11 @@ console.log(email_);
          console.log(data['token']);
       window.userToken=data['token'];
       localStorage.setItem("token", data['token']);
+      if(remember.checked === true){
+          localStorage.setItem("remember", "checked")
+      }
       window.location.href="main.html" 
+
      }else{
          console.log(data['error'])
       window.location.href="index.html"  
