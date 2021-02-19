@@ -8,14 +8,14 @@ if (answer === "checked" ){
     console.log(answer);
     window.location.href="main.html" 
 }else{
-    console.log("printtindeex")
+    console.log("you have to log in")
    
 }
 
 }
 
 ifRemember();
-console.log("hahahaha")
+
 document.querySelector("#signin").addEventListener("submit", function(event){
    
 event.preventDefault();
@@ -69,10 +69,6 @@ console.log(email_);
          console.log(data['token']);
       window.userToken=data['token'];
       localStorage.setItem("token", data['token']);
-      if (remember.checked === true){
-          console.log("checked")
-          localStorage.setItem("remember", "checked")
-      }
       window.location.href="main.html" 
      }else{
          console.log(data['error'])

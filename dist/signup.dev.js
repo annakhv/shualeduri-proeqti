@@ -1,24 +1,10 @@
 "use strict";
 
-function ifRemember() {
-  answer = localStorage.getItem('remember');
-
-  if (answer === "checked") {
-    console.log("printt");
-    console.log(answer);
-    window.location.href = "main.html";
-  } else {
-    console.log("you have to log in");
-  }
-}
-
-ifRemember();
-document.querySelector("#signin").addEventListener("submit", function (event) {
+var email = document.getElementById("email");
+var password = document.getElementById("password");
+var errors = [];
+document.querySelector("#signup").addEventListener("submit", function (event) {
   event.preventDefault();
-  var email = document.getElementById("email");
-  var password = document.getElementById("password");
-  var remember = document.getElementById("remember");
-  var errors = [];
 
   if (email.value === "") {
     errors.push("email is missing");
@@ -35,9 +21,7 @@ document.querySelector("#signin").addEventListener("submit", function (event) {
 
   email_ = email.value;
   password_ = password.value;
-  fetchApi("login", email_, password_);
-  console.log(email_);
-  console.log(password_);
+  fetchApi("register", email_, password_);
 });
 
 function fetchApi(endpoint, email, password) {
@@ -60,15 +44,10 @@ function fetchApi(endpoint, email, password) {
       console.log(data['token']);
       window.userToken = data['token'];
       localStorage.setItem("token", data['token']);
-      window.location.href = "main.html";
+      window.location.href = "index.html";
     } else {
       console.log(data['error']);
-      window.location.href = "index.html";
+      window.location.href = "regist.html";
     }
   });
 }
-
-document.querySelector("#register").addEventListener("click", function (event) {
-  event.preventDefault();
-  window.location.href = "regist.html";
-});
